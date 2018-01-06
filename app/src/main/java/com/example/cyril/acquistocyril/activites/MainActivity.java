@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener_RecherchePrix = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent myIntent = new Intent(MainActivity.this, Ajouter_Article_Activity.class);
+            Intent myIntent = new Intent(MainActivity.this, Rechercher_Article_Prix_Activity.class);
             startActivity(myIntent);
         }
     };
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener_RechercheVille = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent myIntent = new Intent(MainActivity.this, Ajouter_Article_Activity.class);
+            Intent myIntent = new Intent(MainActivity.this, Rechercher_Article_Ville_Activity.class);
             startActivity(myIntent);
         }
     };
