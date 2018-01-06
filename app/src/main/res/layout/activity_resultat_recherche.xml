@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titreResultatRecherche"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/resultat_de_la_recherche"
+        android:gravity="center"
+        android:textSize="30sp"/>
+
+    <TableLayout
+        android:id="@+id/liste_recherche"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </TableLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/prix_croissant" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/prix_decroissant" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_next_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/page_suivante" />
+
+    <Button
+        android:id="@+id/button_retour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_retour" />
+</LinearLayout>

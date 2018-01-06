@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android 2017 – 2018 Acquisto Cyril</string>
+    <string name="text_bienvenue">Bienvenue sur l\'application de Cyril Acquisto</string>
+    <string name="Ajout_Article">Poster un nouvel article</string>
+    <string name="rechercher_article_prix">Rechercher un article par prix</string>
+    <string name="recherche_article_ville">Rechercher un article par ville</string>
+    <string name="titre_Ajout_article">Ajouter un article</string>
+    <string name="label_nom">Nom de l\'article</string>
+    <string name="label_Prix">Prix de l\'article</string>
+    <string name="label_Descriptif">Descriptif de l\'article</string>
+    <string name="label_Ville">Localité du vendeur</string>
+    <string name="label_Etat">Etat de l\'article</string>
+    <string name="radio_etat_neuf">Neuf</string>
+    <string name="radio_etat_utilise">Utilisé</string>
+    <string name="label_info">Information concernant la réception du l\'article</string>
+    <string name="radio_envoye">Envoyé</string>
+    <string name="radio_main_propre">A récupérer en main propre</string>
+    <string name="btn_ajouter">Ajouter</string>
+    <string name="btn_effacer">Effacer</string>
+    <string name="btn_retour">Retour</string>
+    <string name="titre_recherche">Rechercher un article</string>
+    <string name="btn_rechercher">Rechercher</string>
+    <string name="label_localite_choix">Localité de votre choix</string>
+    <string name="prix_maximal">Prix maximal</string>
+    <string name="prix_minimal">Prix minimal</string>
+    <string name="resultat_de_la_recherche">Resultat de la recherche</string>
+    <string name="page_suivante">Page suivante</string>
+    <string name="prix_decroissant">Prix décroissant</string>
+    <string name="prix_croissant">Prix croissant</string>
+    <string name="reception_de_l_article">Reception de l\'article</string>
+    <string name="detail_article">Détail de l\'article</string>
+    <string name="erreur_encodage_ville_recherche">Ce champ doit être complété</string>
+    <string name="existe_deja">Cette localite existe déjà, regarder dans la liste</string>
+</resources>

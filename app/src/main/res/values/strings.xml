@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Acquisto Cyril\'s Android 2017 – 2018</string>
+    <string name="text_bienvenue">Welcome to the Acquisto Cyril\'s Application</string>
+    <string name="Ajout_Article">Add a new article</string>
+    <string name="rechercher_article_prix">Search an article thanks to the price</string>
+    <string name="recherche_article_ville">Search an article thanks to the locality</string>
+    <string name="titre_Ajout_article">Add an article</string>
+    <string name="label_nom">Article\'s name</string>
+    <string name="label_Prix">Article\'s price</string>
+    <string name="label_Descriptif">Description of the article</string>
+    <string name="label_Ville">Locality of the seller</string>
+    <string name="label_Etat">Condition of the article</string>
+    <string name="radio_etat_neuf">New</string>
+    <string name="radio_etat_utilise">Used</string>
+    <string name="label_info">Information about the reception of the article</string>
+    <string name="radio_envoye">Send</string>
+    <string name="radio_main_propre">To be recovered by hand</string>
+    <string name="btn_ajouter">Add</string>
+    <string name="btn_effacer">Delete</string>
+    <string name="btn_retour">Return</string>
+    <string name="titre_recherche">Search an article</string>
+    <string name="btn_rechercher">Search</string>
+    <string name="label_localite_choix">Locality of the seller</string>
+    <string name="prix_maximal">Maximum price</string>
+    <string name="prix_minimal">Minimum price</string>
+    <string name="resultat_de_la_recherche">Search result</string>
+    <string name="page_suivante">Next page</string>
+    <string name="prix_decroissant">Descending price</string>
+    <string name="prix_croissant">Ascending price</string>
+    <string name="reception_de_l_article">Reception of the article</string>
+    <string name="detail_article">Article\'s details</string>
+    <string name="erreur_encodage_ville_recherche">The field must be completed</string>
+    <string name="existe_deja">This locality already exists. Please check it on the list</string>
+</resources>
