@@ -1,14 +1,15 @@
 package com.example.cyril.acquistocyril.db;
 
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.JsonReader;
 import android.util.Log;
 
 import com.example.cyril.acquistocyril.activites.Ajouter_Article_Activity;
 import com.example.cyril.acquistocyril.donnee.Localite;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -24,48 +25,37 @@ public class SelectVilleDB extends AsyncTask<Void,Void,ArrayList<Localite>> {
 
     @Override
     protected ArrayList<Localite> doInBackground(Void...arg0){
-        String url = "http://10.0.2.2/Android/addLocalite.php";
         String result = "";
         try {
-            URL url_connexion = new URL(url);
+            URL url_connexion = new URL("http://10.0.2.2/Android/selectLocalitePDO.php");
             HttpURLConnection connexion = (HttpURLConnection) url_connexion.openConnection();
             connexion.setRequestMethod("GET");
-            connexion.setConnectTimeout(5000);
-            connexion.setReadTimeout(5000);
-
-            connexion.setRequestProperty("Content-Type","application/json");
+            connexion.setDoInput(true);
+            //connexion.setDoOutput(true);
+            connexion.setRequestProperty("Content-Type","text/plain");
             connexion.setRequestProperty("charset","utf-8");
 
-            connexion.connect();
-
-            int codeReponse = connexion.getResponseCode();
-            if(codeReponse==200){
-                InputStream inputStream = connexion.getInputStream();
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
-
-                JsonReader jsonReader = new JsonReader(inputStreamReader);
-                jsonReader.beginArray();
-                while(jsonReader.hasNext()){
-                    Localite loc = new Localite(jsonReader.nextString());
-                    Log.d("Test : ",loc.getNomLocalite());
-                    listeLocalite.add(loc);
-                }
-                jsonReader.endArray();
-                jsonReader.close();
+            InputStream inputStream = connexion.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
+            BufferedReader bf = new BufferedReader(inputStreamReader);
+            String ligne = "";
+            while((ligne = bf.readLine())!=null){
+                result += ligne;
             }
+            bf.close();
+            inputStream.close();
+            connexion.disconnect();
+
+            JSONArray json = new JSONArray(result);
+            for (int i = 0; i<json.length(); i++){
+                Localite tmp = new Localite(json.getJSONObject(i).getString("nom"));
+                listeLocalite.add(tmp);
+            }
+
         } catch (Exception e) {
             Log.d("ERROR EXCEPTION : ",e.getMessage());
+            e.printStackTrace();
         }
         return listeLocalite;
     }
-
-    /*@Override
-    protected void onPostExecute(ArrayList<Localite> resultat){
-        if(resultat !=null){
-
-        }
-        else{
-
-        }
-    }*/
 }

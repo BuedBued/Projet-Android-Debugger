@@ -1,8 +1,10 @@
 package com.example.cyril.acquistocyril.activites;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,20 +56,25 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
         try {
             SelectVilleDB selectDB = new  SelectVilleDB(Ajouter_Article_Activity.this);
             listeLocalite = selectDB.execute().get();
-            for(Localite l : listeLocalite){
-                Log.d("Donnee",l.getNomLocalite());
+            int cpt=1;
+            for (Localite l:listeLocalite) {
+                TableRow tr = new TableRow(this);
+                TextView labelLocalite = new TextView(this);
+                labelLocalite.setText(l.getNomLocalite());
+                labelLocalite.setTextSize(20);
+                tr.addView(labelLocalite);
+                tr.setId(cpt);
+                tr.setGravity(Gravity.CENTER);
+                tr.setClickable(true);
+                tr.setOnClickListener(listener_localite);
+                tableLocalite.addView(tr);
+                cpt++;
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
-        /*for (Localite l:listeLocalite) {
-            TableRow tr = new TableRow(this);
-            TextView labelLocalite = new TextView(this);
-            labelLocalite.setText(l.getNomLocalite());
-            tr.addView(labelLocalite);
-            tableLocalite.addView(tr);
-        }*/
+
 
         btnAjouter = findViewById(R.id.bouton_ajouter);
         //btnAjouter.setOnClickListener(listener_AjouterArticle);
@@ -104,6 +111,14 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
         public void onClick(View view) {
             Intent myIntent = new Intent(Ajouter_Article_Activity.this, MainActivity.class);
             startActivity(myIntent);
+        }
+    };
+
+    View.OnClickListener listener_localite = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            view.setSelected(true);
+            view.setBackgroundColor(Color.GRAY);
         }
     };
 }
