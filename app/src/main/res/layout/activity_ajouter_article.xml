@@ -91,6 +91,13 @@
                     android:text="@string/label_Ville"
                     android:textSize="20sp"/>
 
+            <TableLayout
+                android:id="@+id/tableLocalite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TableLayout>
+
             <TextView
                 android:id="@+id/labelInfo"
                 android:layout_width="match_parent"

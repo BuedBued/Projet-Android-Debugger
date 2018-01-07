@@ -2,13 +2,17 @@ package com.example.cyril.acquistocyril.activites;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.cyril.acquistocyril.R;
+import com.example.cyril.acquistocyril.db.SelectVilleDB;
 import com.example.cyril.acquistocyril.donnee.Localite;
 
 import java.util.ArrayList;
@@ -40,14 +44,23 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_article);
 
-        /*tableLocalite = findViewById(R.id.tableLocalite);
-        TableRow tr = new TableRow(this);
+        tableLocalite = findViewById(R.id.tableLocalite);
+        /*TableRow tr = new TableRow(this);
         TextView labelLocalite = new TextView(this);
         labelLocalite.setText(SelectVilleDB.getLocalites());
         tr.addView(labelLocalite);
         tableLocalite.addView(tr);*/
 
-        //listeLocalite = SelectVilleDB.getLocalites();
+        try {
+            SelectVilleDB selectDB = new  SelectVilleDB(Ajouter_Article_Activity.this);
+            listeLocalite = selectDB.execute().get();
+            for(Localite l : listeLocalite){
+                Log.d("Donnee",l.getNomLocalite());
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         /*for (Localite l:listeLocalite) {
             TableRow tr = new TableRow(this);
             TextView labelLocalite = new TextView(this);
