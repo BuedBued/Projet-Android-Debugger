@@ -32,4 +32,10 @@
     <string name="detail_article">Détail de l\'article</string>
     <string name="erreur_encodage_ville_recherche">Ce champ doit être complété</string>
     <string name="existe_deja">Cette localite existe déjà, regarder dans la liste</string>
+    <string name="erreur_nom_vide">Le champ nom est vide</string>
+    <string name="erreur_prix_vide">Le champ prix est vide</string>
+    <string name="erreur_prix_incorrect">Le prix n\'est pas correct</string>
+    <string name="erreur_ville_vide">Vous n\'avez pas selectionné de ville</string>
+    <string name="erreur_etat_vide">Vous n\'avez pas choisi l\'état de l\'article</string>
+    <string name="erreur_envoie_vide">Vous n\'avez pas choisi le mode de livraison de l\'article</string>
 </resources>

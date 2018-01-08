@@ -91,12 +91,21 @@
                     android:text="@string/label_Ville"
                     android:textSize="20sp"/>
 
-            <TableLayout
-                android:id="@+id/tableLocalite"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            </TableLayout>
+                <RadioGroup
+                    android:id="@+id/listeLocalite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                </RadioGroup>
+
+            </ScrollView>
+
+
 
             <TextView
                 android:id="@+id/labelInfo"
@@ -128,6 +137,15 @@
                     android:layout_weight="1"
                     android:text="@string/radio_main_propre" />
             </RadioGroup>
+
+            <TextView
+                android:id="@+id/erreur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="@color/colorAccent"
+                android:text=""/>
 
             <Button
                 android:id="@+id/bouton_ajouter"

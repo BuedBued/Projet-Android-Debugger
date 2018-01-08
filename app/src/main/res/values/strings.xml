@@ -31,4 +31,10 @@
     <string name="detail_article">Article\'s details</string>
     <string name="erreur_encodage_ville_recherche">The field must be completed</string>
     <string name="existe_deja">This locality already exists. Please check it on the list</string>
+    <string name="erreur_nom_vide">The field name is empty</string>
+    <string name="erreur_prix_vide">The field price is empty</string>
+    <string name="erreur_prix_incorrect">The price is incorrect</string>
+    <string name="erreur_ville_vide">You don\'t have select the locality</string>
+    <string name="erreur_etat_vide">You don\'t have select the article\'s condition</string>
+    <string name="erreur_envoie_vide">You don\'t have select the information about the reception of the article</string>
 </resources>

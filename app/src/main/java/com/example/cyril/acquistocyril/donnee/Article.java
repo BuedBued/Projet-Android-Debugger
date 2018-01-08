@@ -36,4 +36,8 @@ public class Article {
 
     public boolean getLivraison() {return livraison;}
     public void setLivraison(boolean livraison) {this.livraison = livraison;}
+
+    public String toParam(){
+        return "nom="+nom+"&descriptif="+descriptif+"&prix"+prix+"&etat="+etat+"&localite="+localite.getNomLocalite()+"&livraison="+livraison;
+    }
 }
