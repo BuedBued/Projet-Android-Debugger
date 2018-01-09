@@ -38,4 +38,7 @@
     <string name="erreur_ville_vide">Vous n\'avez pas selectionné de ville</string>
     <string name="erreur_etat_vide">Vous n\'avez pas choisi l\'état de l\'article</string>
     <string name="erreur_envoie_vide">Vous n\'avez pas choisi le mode de livraison de l\'article</string>
+    <string name="erreur_ajout_erreur_db">Il y a une erreur dans la base de données</string>
+    <string name="erreur_ajout_localiteNonTrouve">Cette localité n\'est pas dans la base de données</string>
+    <string name="erreur_ajout_article_existant">Cet article existe déjà</string>
 </resources>

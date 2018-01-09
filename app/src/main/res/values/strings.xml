@@ -34,7 +34,10 @@
     <string name="erreur_nom_vide">The field name is empty</string>
     <string name="erreur_prix_vide">The field price is empty</string>
     <string name="erreur_prix_incorrect">The price is incorrect</string>
-    <string name="erreur_ville_vide">You don\'t have select the locality</string>
-    <string name="erreur_etat_vide">You don\'t have select the article\'s condition</string>
-    <string name="erreur_envoie_vide">You don\'t have select the information about the reception of the article</string>
+    <string name="erreur_ville_vide">You didn\'t select the locality</string>
+    <string name="erreur_etat_vide">You didn\'t select the article\'s condition</string>
+    <string name="erreur_envoie_vide">You didn\'t select the information about the reception of the article</string>
+    <string name="erreur_ajout_erreur_db">There is a mistake in the database</string>
+    <string name="erreur_ajout_localiteNonTrouve">This locality is not in the database</string>
+    <string name="erreur_ajout_article_existant">This article already exists</string>
 </resources>

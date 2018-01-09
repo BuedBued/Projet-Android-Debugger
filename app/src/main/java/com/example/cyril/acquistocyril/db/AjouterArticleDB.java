@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class AjouterArticleDB extends AsyncTask<Article,Void,Integer> {
@@ -42,15 +43,9 @@ public class AjouterArticleDB extends AsyncTask<Article,Void,Integer> {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
             BufferedReader bfr = new BufferedReader(inputStreamReader);
             result = Integer.parseInt(bfr.readLine());
-
-            if (result==1)
-                Log.d("RETOUR PHP : ", "OK");
-            else if (result==2)
-                Log.d("RETOUR PHP : ", "LOCALITE NON TROUVEE");
-            else
-                Log.d("RETOUR PHP : ", "ARTICLE DEJA EXISTANT");
         }
         catch(Exception e){
+            Log.d("DEBUG : ", e.getMessage());
             e.printStackTrace();
         }
         return result;

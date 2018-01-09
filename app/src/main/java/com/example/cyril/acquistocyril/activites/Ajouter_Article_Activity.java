@@ -26,9 +26,9 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
     String nom;
     String descriptif;
     double prix;
-    boolean etat;
+    int etat;
     Localite localite;
-    boolean livraison;
+    int livraison;
 
     TextView erreur;
     EditText inputNom;
@@ -76,7 +76,7 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
 
 
         btnAjouter = findViewById(R.id.bouton_ajouter);
-        //btnAjouter.setOnClickListener(listener_AjouterArticle);
+        btnAjouter.setOnClickListener(listener_AjouterArticle);
 
         btnSupprimer = findViewById(R.id.bouton_effacer);
         btnSupprimer.setOnClickListener(listener_Supprimer);
@@ -123,17 +123,17 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
                         localite = new Localite (rb.getText().toString());
                         if(!radioEtatNeuf.isChecked() && !radioEtatUtilise.isChecked())
                             erreur.setText(R.string.erreur_etat_vide);
-                        else if (!radioEnvoye.isChecked() && radioNonEnvoye.isChecked())
+                        else if (!radioEnvoye.isChecked() && !radioNonEnvoye.isChecked())
                             erreur.setText(R.string.erreur_envoie_vide);
                         else{
                             if(radioEnvoye.isChecked())
-                                livraison = true;
+                                livraison = 1;
                             else
-                                livraison = false;
+                                livraison = 0;
                             if(radioEtatNeuf.isChecked())
-                                etat = true;
+                                etat = 1;
                             else
-                                etat = false;
+                                etat = 0;
                             Article a = new Article(nom,descriptif,prix,etat,localite,livraison);
                             AjouterArticleDB add = new AjouterArticleDB(Ajouter_Article_Activity.this);
                             try{
@@ -144,11 +144,11 @@ public class Ajouter_Article_Activity extends AppCompatActivity{
                                 }
                                 else{
                                     if (res==0)
-                                        erreur.setText("Erreur dans la DB");
+                                        erreur.setText(R.string.erreur_ajout_erreur_db);
                                     else if(res==2)
-                                        erreur.setText("Localite non trouvee dans la DB");
+                                        erreur.setText(R.string.erreur_ajout_localiteNonTrouve);
                                     else
-                                        erreur.setText("Article déjà existant");
+                                        erreur.setText(R.string.erreur_ajout_article_existant);
                                 }
                             }
                             catch (Exception e){
