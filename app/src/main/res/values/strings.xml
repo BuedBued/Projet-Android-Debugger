@@ -40,4 +40,5 @@
     <string name="erreur_ajout_erreur_db">There is a mistake in the database</string>
     <string name="erreur_ajout_localiteNonTrouve">This locality is not in the database</string>
     <string name="erreur_ajout_article_existant">This article already exists</string>
+    <string name="erreur_champ_vide">All fields must be completed</string>
 </resources>

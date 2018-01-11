@@ -16,21 +16,29 @@
         android:gravity="center"/>
 
 
-        <EditText
-            android:id="@+id/labelPrixMin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:hint="@string/prix_minimal"/>
+    <EditText
+        android:id="@+id/labelPrixMin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/prix_minimal"/>
 
-        <EditText
-            android:id="@+id/labelPrixMax"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:hint="@string/prix_maximal"/>
+    <EditText
+        android:id="@+id/labelPrixMax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/prix_maximal"/>
+
+    <TextView
+        android:id="@+id/labelErreur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="" />
 
     <Space
         android:layout_width="match_parent"

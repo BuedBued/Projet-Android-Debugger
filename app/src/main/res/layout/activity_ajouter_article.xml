@@ -83,29 +83,21 @@
 
             </RadioGroup>
 
-                <TextView
-                    android:id="@+id/labelVille"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:text="@string/label_Ville"
-                    android:textSize="20sp"/>
-
-            <ScrollView
+            <TextView
+                android:id="@+id/labelVille"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="@string/label_Ville"
+                android:textSize="20sp"/>
 
-                <RadioGroup
-                    android:id="@+id/listeLocalite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                </RadioGroup>
-
-            </ScrollView>
-
-
+            <RadioGroup
+                android:id="@+id/listeLocalite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/labelInfo"

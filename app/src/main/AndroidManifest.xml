@@ -20,6 +20,7 @@
         <activity android:name=".activites.Ajouter_Article_Activity"/>
         <activity android:name=".activites.Rechercher_Article_Prix_Activity"/>
         <activity android:name=".activites.Rechercher_Article_Ville_Activity"/>
+        <activity android:name=".activites.Resultat_Recherche_Activity"/>
 
     </application>
 
