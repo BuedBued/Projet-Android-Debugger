@@ -6,7 +6,8 @@
     <TextView
         android:id="@+id/titreResultatRecherche"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="@string/resultat_de_la_recherche"
         android:gravity="center"
         android:textSize="30sp"/>
@@ -14,25 +15,29 @@
     <TableLayout
         android:id="@+id/liste_recherche"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_weight="6">
 
 
     </TableLayout>
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioCroissant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/prix_croissant" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioDecroissant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,7 +48,8 @@
     <FrameLayout
         android:id="@+id/layout_page_precedente"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/bouton_page_precedente"
@@ -56,7 +62,8 @@
     <FrameLayout
         android:id="@+id/layout_page_suivante"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/bouton_page_suivante"
@@ -68,7 +75,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/bouton_retour"

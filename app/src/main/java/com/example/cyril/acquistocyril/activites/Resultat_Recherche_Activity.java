@@ -5,9 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RadioButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.cyril.acquistocyril.R;
 import com.example.cyril.acquistocyril.donnee.Article;
@@ -20,9 +25,14 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
     int cptArticle = 0;
     int borneInf = 0;
     int borneSup = 0;
+    RadioButton croissant;
+    RadioButton decroissant;
     Button btnRetour;
     Button btnPageSuivante;
     Button btnPagePrecedente;
+    TableLayout listeRecherche;
+    FrameLayout layoutPS;
+    FrameLayout layoutPP;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +46,16 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
 
         btnPagePrecedente = findViewById(R.id.bouton_page_precedente);
         btnPagePrecedente.setOnClickListener(listener_PP);
+
+        listeRecherche = findViewById(R.id.liste_recherche);
+
+        layoutPS = findViewById(R.id.layout_page_suivante);
+        layoutPP = findViewById(R.id.layout_page_precedente);
+
+        croissant = findViewById(R.id.radioCroissant);
+        croissant.setOnClickListener(listener_croissant);
+        decroissant = findViewById(R.id.radioDecroissant);
+        decroissant.setOnClickListener(listener_decroissant);
 
         try {
             Bundle params = getIntent().getExtras();
@@ -69,11 +89,14 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
                      cptString = 0;
                  }
             }
-            FrameLayout layoutPP = findViewById(R.id.layout_page_precedente);
             layoutPP.setVisibility(FrameLayout.GONE);
             if(cptArticle<5){
-                FrameLayout layoutPS = findViewById(R.id.layout_page_suivante);
                 layoutPS.setVisibility(FrameLayout.GONE);
+                construireTableau(borneInf,cptArticle);
+            }
+            else{
+                borneSup = 5;
+                construireTableau(borneInf,borneSup);
             }
 
         }
@@ -86,14 +109,27 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
     View.OnClickListener listener_PS = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            borneInf+=5;
+            if(cptArticle-borneSup<5) {
+                borneSup += cptArticle-borneSup;
+                layoutPS.setVisibility(FrameLayout.GONE);
+            }
+            else
+                borneSup+=5;
+            construireTableau(borneInf,borneSup);
+            layoutPP.setVisibility(FrameLayout.VISIBLE);
         }
     };
 
     View.OnClickListener listener_PP = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            borneSup = borneInf;
+            borneInf -=5;
+            construireTableau(borneInf,borneSup);
+            layoutPS.setVisibility(FrameLayout.VISIBLE);
+            if(borneInf==0)
+                layoutPP.setVisibility(FrameLayout.GONE);
         }
     };
 
@@ -104,4 +140,74 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
             startActivity(myIntent);
         }
     };
+
+    View.OnClickListener listener_croissant = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+                trierTableau(true);
+                construireTableau(borneInf,borneSup);
+        }
+    };
+
+    View.OnClickListener listener_decroissant = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            trierTableau(false);
+            construireTableau(borneInf,borneSup);
+        }
+    };
+
+    public void construireTableau(int debut, int fin){
+        listeRecherche.removeAllViews();
+        for(int i=debut; i<fin;i++){
+            TableRow tr = new TableRow(Resultat_Recherche_Activity.this);
+            tr.setGravity(Gravity.CENTER);
+            tr.setPadding(0,0,20,30);
+            TextView nom = new TextView(Resultat_Recherche_Activity.this);
+            Article a = (Article)listeArticle.get(i);
+            nom.setText(a.getNom());
+            nom.setTextSize(30);
+            TextView prix = new TextView(Resultat_Recherche_Activity.this);
+            Double tprix = a.getPrix();
+            prix.setText(tprix.toString());
+            prix.setTextSize(30);
+            tr.addView(nom);
+            tr.addView(prix);
+            tr.setClickable(true);
+            View.OnClickListener listener_detail = new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            };
+            tr.setOnClickListener(listener_detail);
+            listeRecherche.addView(tr);
+        }
+    }
+
+    public void trierTableau(boolean isCroissant){
+        Article tmp;
+        if(!isCroissant){
+            for (int i=0;i<cptArticle;i++){
+                for (int j=i;j<cptArticle;j++){
+                    if(listeArticle.get(i).getPrix()<listeArticle.get(j).getPrix()){
+                        tmp = listeArticle.get(i);
+                        listeArticle.set(i,listeArticle.get(j));
+                        listeArticle.set(j,tmp);
+                    }
+                }
+            }
+        }
+        else{
+            for (int i=0;i<cptArticle;i++){
+                for (int j=i;j<cptArticle;j++){
+                    if(listeArticle.get(i).getPrix()>listeArticle.get(j).getPrix()){
+                        tmp = listeArticle.get(i);
+                        listeArticle.set(i,listeArticle.get(j));
+                        listeArticle.set(j,tmp);
+                    }
+                }
+            }
+        }
+    }
 }
