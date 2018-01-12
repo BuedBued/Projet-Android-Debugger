@@ -1,0 +1,4 @@
+Pour le fonctionnement de la DB :
+
+Exectuer le script projet_android.sql dans le dossier DB pour créer la base de données
+Le dossier Android est à placer dans le dossier d'accès pour le localhost.

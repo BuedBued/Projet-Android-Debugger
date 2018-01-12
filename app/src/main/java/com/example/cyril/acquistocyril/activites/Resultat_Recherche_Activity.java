@@ -62,6 +62,7 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
             Bundle params = getIntent().getExtras();
             listeArticleParam = params.getStringArrayList("listeArticle");
 
+            //Récupération des valeurs
             int cptString = 0;
             String tmpNom ="";
             String tmpDesc = "";
