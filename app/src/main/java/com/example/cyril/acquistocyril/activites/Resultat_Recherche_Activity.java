@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class Resultat_Recherche_Activity extends AppCompatActivity {
     ArrayList<Article> listeArticle = new ArrayList<Article>();
+    ArrayList<String> listeArticleParam;
     int cptArticle = 0;
     int borneInf = 0;
     int borneSup = 0;
@@ -59,7 +60,7 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
 
         try {
             Bundle params = getIntent().getExtras();
-            ArrayList<String> test = params.getStringArrayList("listeArticle");
+            listeArticleParam = params.getStringArrayList("listeArticle");
 
             int cptString = 0;
             String tmpNom ="";
@@ -69,7 +70,7 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
             int tmpLivraison = 0;
             Localite tmpLoc = new Localite();
             Article tmp;
-            for(String s : test){
+            for(String s : listeArticleParam){
                 cptString++;
                  if (cptString == 1)
                     tmpNom = s;
@@ -157,29 +158,51 @@ public class Resultat_Recherche_Activity extends AppCompatActivity {
         }
     };
 
+     View.OnClickListener listener_detail = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int i = view.getId();
+            Article aEnvoyer = listeArticle.get(i);
+            ArrayList<String> param = new ArrayList<>();
+            param.add(aEnvoyer.getNom());
+            param.add(aEnvoyer.getDescriptif());
+            Double prix = aEnvoyer.getPrix();
+            param.add(prix.toString());
+            Integer etat = aEnvoyer.getEtat();
+            Integer livraison = aEnvoyer.getLivraison();
+            Localite loc = aEnvoyer.getLocalite();
+            param.add(etat.toString());
+            param.add(loc.getNomLocalite());
+            param.add(livraison.toString());
+
+            Intent myIntent = new Intent(Resultat_Recherche_Activity.this, Detail_Article_Activity.class);
+            myIntent.putStringArrayListExtra("article", param);
+            myIntent.putStringArrayListExtra("liste",listeArticleParam);
+            startActivity(myIntent);
+
+        }
+    };
+
     public void construireTableau(int debut, int fin){
         listeRecherche.removeAllViews();
         for(int i=debut; i<fin;i++){
             TableRow tr = new TableRow(Resultat_Recherche_Activity.this);
             tr.setGravity(Gravity.CENTER);
-            tr.setPadding(0,0,20,30);
+            tr.setPadding(0,0,0,30);
+            tr.setId(i);
             TextView nom = new TextView(Resultat_Recherche_Activity.this);
+            nom.setPadding(0,0,20,0);
             Article a = (Article)listeArticle.get(i);
             nom.setText(a.getNom());
-            nom.setTextSize(30);
+            nom.setTextSize(20);
             TextView prix = new TextView(Resultat_Recherche_Activity.this);
             Double tprix = a.getPrix();
             prix.setText(tprix.toString());
-            prix.setTextSize(30);
+            prix.setTextSize(20);
+            prix.setPadding(0,0,20,0);
             tr.addView(nom);
             tr.addView(prix);
             tr.setClickable(true);
-            View.OnClickListener listener_detail = new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            };
             tr.setOnClickListener(listener_detail);
             listeRecherche.addView(tr);
         }
