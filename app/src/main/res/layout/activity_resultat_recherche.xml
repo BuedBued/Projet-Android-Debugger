@@ -37,17 +37,44 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/prix_decroissant" />
+
     </RadioGroup>
 
-    <Button
-        android:id="@+id/button_next_page"
+    <FrameLayout
+        android:id="@+id/layout_page_precedente"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/page_suivante" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button_retour"
+        <Button
+            android:id="@+id/bouton_page_precedente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/previous_page" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_page_suivante"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_retour" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bouton_page_suivante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/page_suivante" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/bouton_retour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_retour" />
+    </FrameLayout>
+
 </LinearLayout>

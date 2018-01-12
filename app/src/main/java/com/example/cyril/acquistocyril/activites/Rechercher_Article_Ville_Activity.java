@@ -8,11 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.cyril.acquistocyril.R;
 import com.example.cyril.acquistocyril.db.RechercheArticleLocaliteDB;
-import com.example.cyril.acquistocyril.db.RechercheArticlePrixDB;
 import com.example.cyril.acquistocyril.donnee.Article;
 
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class Rechercher_Article_Ville_Activity extends AppCompatActivity {
     Button btnRecherche;
 
     String localite;
-    ArrayList<Article> listeArticle;
+    ArrayList<String> listeArticle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +52,7 @@ public class Rechercher_Article_Ville_Activity extends AppCompatActivity {
                 try{
                     listeArticle = recherche.execute(param).get();
                     Intent myIntent = new Intent (Rechercher_Article_Ville_Activity.this,Resultat_Recherche_Activity.class);
+                    myIntent.putStringArrayListExtra("listeArticle",listeArticle);
                     startActivity(myIntent);
                 }
                 catch(Exception e){

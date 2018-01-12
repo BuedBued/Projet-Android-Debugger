@@ -42,4 +42,5 @@
     <string name="erreur_ajout_localiteNonTrouve">Cette localité n\'est pas dans la base de données</string>
     <string name="erreur_ajout_article_existant">Cet article existe déjà</string>
     <string name="erreur_champ_vide">Tous les champs doivent être complétés</string>
+    <string name="previous_page">Page précédente</string>
 </resources>

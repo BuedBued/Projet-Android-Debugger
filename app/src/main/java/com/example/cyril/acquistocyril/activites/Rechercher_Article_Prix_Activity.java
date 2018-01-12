@@ -22,7 +22,7 @@ public class Rechercher_Article_Prix_Activity extends AppCompatActivity {
     EditText labelPrixMax;
     TextView labelErreur;
     String prixMin, prixMax;
-    ArrayList<Article> listeArticle;
+    ArrayList<String> listeArticle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class Rechercher_Article_Prix_Activity extends AppCompatActivity {
                 try{
                     listeArticle = recherche.execute(param).get();
                     Intent myIntent = new Intent (Rechercher_Article_Prix_Activity.this,Resultat_Recherche_Activity.class);
+                    myIntent.putStringArrayListExtra("listeArticle",listeArticle);
                     startActivity(myIntent);
                 }
                 catch(Exception e){

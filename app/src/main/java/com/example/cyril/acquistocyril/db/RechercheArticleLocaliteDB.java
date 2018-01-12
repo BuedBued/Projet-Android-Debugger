@@ -19,15 +19,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class RechercheArticleLocaliteDB extends AsyncTask<String,Void,ArrayList<Article>>
+public class RechercheArticleLocaliteDB extends AsyncTask<String,Void,ArrayList<String>>
     {
         Rechercher_Article_Ville_Activity activite;
-        private ArrayList<Article> listeArticle = new ArrayList<Article>();
+        private ArrayList<String> listeArticle = new ArrayList<String>();
 
         public RechercheArticleLocaliteDB(Rechercher_Article_Ville_Activity activite){this.activite = activite;}
 
         @Override
-        protected ArrayList<Article> doInBackground(String...str){
+        protected ArrayList<String> doInBackground(String...str){
         String param = str[0];
         String result = "";
         try {
@@ -58,14 +58,15 @@ public class RechercheArticleLocaliteDB extends AsyncTask<String,Void,ArrayList<
 
             JSONArray json = new JSONArray(result);
             for (int i = 0; i < json.length(); i++) {
-                String nom = json.getJSONObject(i).getString("nom");
-                String descriptif = json.getJSONObject(i).getString("descriptif");
-                double prix = json.getJSONObject(i).getDouble("prix");
-                int etat = json.getJSONObject(i).getInt("etat");
-                int livraison = json.getJSONObject(i).getInt("livraison");
-                Localite localite = new Localite(json.getJSONObject(i).getString("localite"));
-                Article tmp = new Article(nom, descriptif, prix, etat, localite, livraison);
-                listeArticle.add(tmp);
+                listeArticle.add(json.getJSONObject(i).getString("nom"));
+                listeArticle.add(json.getJSONObject(i).getString("descriptif"));
+                Double prix = json.getJSONObject(i).getDouble("prix");
+                listeArticle.add(prix.toString());
+                Integer etat = json.getJSONObject(i).getInt("etat");
+                listeArticle.add(etat.toString());
+                Integer livraison = json.getJSONObject(i).getInt("livraison");
+                listeArticle.add(livraison.toString());
+                listeArticle.add(json.getJSONObject(i).getString("localite"));
             }
 
 
